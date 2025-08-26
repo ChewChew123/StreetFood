@@ -64,10 +64,10 @@
     document.addEventListener("DOMContentLoaded", function () {
       const signupLink = document.getElementById("signupLink");
       const referrer = document.referrer || "favourite.html";
-      if (referrer && !referrer.includes("signup.html")) {
-        signupLink.href = `signup.html?returnTo=${encodeURIComponent(referrer)}`;
+      if (referrer && !referrer.includes("Signup.html")) {
+        signupLink.href = `Signup.html?returnTo=${encodeURIComponent(referrer)}`;
       } else {
-        signupLink.href = "signup.html?returnTo=favourite.html";
+        signupLink.href = "Signup.html?returnTo=favourite.html";
       }
     });
   </script>
