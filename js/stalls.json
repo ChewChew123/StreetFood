@@ -1,0 +1,244 @@
+{
+  "stalls": [
+    {
+      "id": 1,
+      "name": "Jalan Alor Char Kuey Teow",
+      "type": "Char Kuey Teow",
+      "area": "Bukit Bintang",
+      "address": "Jalan Alor, Kuala Lumpur",
+      "lat": 3.1457,
+      "lng": 101.71,
+      "desc": "Famous wok-fried noodles with smoky flavour at Jalan Alor."
+    },
+    {
+      "id": 2,
+      "name": "Gerai Satay Kajang",
+      "type": "Satay",
+      "area": "Kajang",
+      "address": "Kajang, Selangor",
+      "lat": 2.9935,
+      "lng": 101.7909,
+      "desc": "Traditional skewered satay served with peanut sauce in Kajang."
+    },
+    {
+      "id": 3,
+      "name": "Kampung Baru Nasi Lemak",
+      "type": "Nasi Lemak",
+      "area": "Kampung Baru",
+      "address": "Kampung Baru, Kuala Lumpur",
+      "lat": 3.1626,
+      "lng": 101.7053,
+      "desc": "Classic Malaysian coconut rice with sambal in Kampung Baru."
+    },
+    {
+      "id": 4,
+      "name": "Penang Assam Laksa Van",
+      "type": "Assam Laksa",
+      "area": "George Town",
+      "address": "Air Itam Market, Penang",
+      "lat": 5.3981,
+      "lng": 100.2796,
+      "desc": "Authentic Penang-style Assam Laksa at Air Itam Market."
+    },
+    {
+      "id": 5,
+      "name": "Petaling Street Claypot Chicken Rice",
+      "type": "Claypot Chicken",
+      "area": "Petaling Street",
+      "address": "Petaling Street, Kuala Lumpur",
+      "lat": 3.1446,
+      "lng": 101.6979,
+      "desc": "Old\u2011school claypot rice with caramelised soy, lap cheong and crispy rice bits."
+    },
+    {
+      "id": 6,
+      "name": "SS2 Wai Sek Kai Satay",
+      "type": "Satay",
+      "area": "SS2, PJ",
+      "address": "Jalan SS 2/60, Petaling Jaya",
+      "lat": 3.1179,
+      "lng": 101.6147,
+      "desc": "Popular night hawker street in PJ; smoky satay with chunky peanut sauce."
+    },
+    {
+      "id": 7,
+      "name": "Taman Connaught Night Market",
+      "type": "Assorted Snacks",
+      "area": "Cheras",
+      "address": "Taman Connaught Night Market, Cheras",
+      "lat": 3.0845,
+      "lng": 101.7401,
+      "desc": "KM\u2011long pasar malam with Thai milk tea, grilled skewers and apam balik."
+    },
+    {
+      "id": 8,
+      "name": "Ipoh Bean Sprout Chicken",
+      "type": "Chicken Rice",
+      "area": "Ipoh",
+      "address": "Jalan Yau Tet Shin, Ipoh",
+      "lat": 4.5975,
+      "lng": 101.0865,
+      "desc": "Crisp\u2011skin chicken with crunchy taugeh; classic Ipoh supper."
+    },
+    {
+      "id": 9,
+      "name": "Kota Bharu Sup Gearbox",
+      "type": "Sup Tulang",
+      "area": "Kota Bharu",
+      "address": "Wakaf Che Yeh Night Market, Kelantan",
+      "lat": 6.1128,
+      "lng": 102.2587,
+      "desc": "Rich bone\u2011marrow soup served late into the night."
+    },
+    {
+      "id": 10,
+      "name": "Muar Otak\u2011Otak",
+      "type": "Otak-Otak",
+      "area": "Muar",
+      "address": "Jalan Haji Abu, Muar, Johor",
+      "lat": 2.047,
+      "lng": 102.5675,
+      "desc": "Charcoal\u2011grilled fish paste in banana leaf; smoky and spicy."
+    },
+    {
+      "id": 11,
+      "name": "Kuching Kolo Mee",
+      "type": "Kolo Mee",
+      "area": "Kuching",
+      "address": "Carpenter Street, Kuching, Sarawak",
+      "lat": 1.5599,
+      "lng": 110.3449,
+      "desc": "Springy noodles with minced pork and oil, Sarawak staple."
+    },
+    {
+      "id": 12,
+      "name": "KK Gaya Street Night Market",
+      "type": "Seafood Snacks",
+      "area": "Kota Kinabalu",
+      "address": "Gaya Street, Kota Kinabalu, Sabah",
+      "lat": 5.9848,
+      "lng": 116.0735,
+      "desc": "Sunday market with grilled seafood, kuih and kopi."
+    },
+    {
+      "id": 13,
+      "name": "Alor Setar Nasi Kandar",
+      "type": "Nasi Kandar",
+      "area": "Alor Setar",
+      "address": "Jalan Putra, Alor Setar, Kedah",
+      "lat": 6.121,
+      "lng": 100.367,
+      "desc": "Northern\u2011style nasi kandar with spicy gravies."
+    },
+    {
+      "id": 14,
+      "name": "Taiping Charcoal Char Kuey Teow",
+      "type": "Char Kuey Teow",
+      "area": "Taiping",
+      "address": "Market Square, Taiping, Perak",
+      "lat": 4.85,
+      "lng": 100.739,
+      "desc": "Charcoal\u2011fired wok hei and duck egg richness."
+    },
+    {
+      "id": 15,
+      "name": "Batu Ferringhi Night Market",
+      "type": "Grilled Seafood",
+      "area": "Batu Ferringhi",
+      "address": "Jalan Batu Ferringhi, Penang",
+      "lat": 5.4722,
+      "lng": 100.2417,
+      "desc": "Beach night market with stingray and satay celup."
+    },
+    {
+      "id": 16,
+      "name": "Melaka Satay Celup Capitol",
+      "type": "Satay Celup",
+      "area": "Melaka",
+      "address": "Lorong Bukit Cina, Melaka",
+      "lat": 2.1951,
+      "lng": 102.2501,
+      "desc": "Dip skewers into bubbling peanut gravy\u2014city icon."
+    },
+    {
+      "id": 17,
+      "name": "Johor Bahru Kway Teow Kia",
+      "type": "Kway Teow Kia",
+      "area": "Johor Bahru",
+      "address": "Jalan Wong Ah Fook, JB",
+      "lat": 1.4606,
+      "lng": 103.7649,
+      "desc": "Silky noodles with braised offal and dark soy."
+    },
+    {
+      "id": 18,
+      "name": "Terengganu Nasi Dagang",
+      "type": "Nasi Dagang",
+      "area": "Kuala Terengganu",
+      "address": "Pasar Payang, Kuala Terengganu",
+      "lat": 5.335,
+      "lng": 103.132,
+      "desc": "Aromatic rice with gulai ikan tongkol; breakfast favourite."
+    },
+    {
+      "id": 19,
+      "name": "Bentong Tau Fu Fah",
+      "type": "Dessert",
+      "area": "Bentong",
+      "address": "Jalan Loke Yew, Bentong, Pahang",
+      "lat": 3.5266,
+      "lng": 101.9075,
+      "desc": "Smooth soy pudding with palm sugar syrup."
+    },
+    {
+      "id": 20,
+      "name": "Sitiawan Gong Pian",
+      "type": "Biscuit",
+      "area": "Sitiawan",
+      "address": "Jalan Raja Omar, Sitiawan, Perak",
+      "lat": 4.2166,
+      "lng": 100.6984,
+      "desc": "Crispy Hock Chew biscuit stuffed with savoury onions."
+    },
+    {
+      "id": 21,
+      "name": "Klang Bak Kut Teh",
+      "type": "Bak Kut Teh",
+      "area": "Klang",
+      "address": "Jalan Besar, Klang",
+      "lat": 3.0431,
+      "lng": 101.4489,
+      "desc": "Herbal pork stew in the cradle of BKT."
+    },
+    {
+      "id": 22,
+      "name": "Penang Chulia Street Roti Canai",
+      "type": "Roti Canai",
+      "area": "George Town",
+      "address": "Lebuh Chulia, George Town",
+      "lat": 5.4171,
+      "lng": 100.3354,
+      "desc": "Night roti canai with dhal and sardine curry."
+    },
+    {
+      "id": 23,
+      "name": "Sandakan UFO Tart",
+      "type": "Dessert",
+      "area": "Sandakan",
+      "address": "Harbour Square, Sandakan, Sabah",
+      "lat": 5.8383,
+      "lng": 118.117,
+      "desc": "Classic sabahan custard tart with meringue dome."
+    },
+    {
+      "id": 24,
+      "name": "Labuan Mee Kolok",
+      "type": "Mee Kolok",
+      "area": "Labuan",
+      "address": "Jalan Merdeka, Labuan",
+      "lat": 5.2767,
+      "lng": 115.2417,
+      "desc": "Labuan take on Sarawakian kolo mee."
+    }
+  ]
+}

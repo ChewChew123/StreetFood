@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaysian Street Food Guide</title>
+  <link rel="stylesheet" href="css/foodGuides&Searching.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🍜 Malaysian Street Food Guide</h1>
+      <p>Discover the rich flavors of Malaysia's authentic street cuisine</p>
+    </header>
+
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="🔍 Search delicious food...">
+      <select id="regionFilter">
+        <option value="">All Regions</option>
+        <option value="Penang">Penang</option>
+        <option value="Kuala Lumpur">Kuala Lumpur</option>
+        <option value="Melaka">Melaka</option>
+        <option value="Johor">Johor</option>
+        <option value="Kelantan">Kelantan</option>
+        <option value="Selangor">Selangor</option>
+        <option value="Perak">Perak</option>
+        <option value="Terengganu">Terengganu</option>
+      </select>
+      <select id="typeFilter">
+        <option value="">All Types</option>
+        <option value="Rice">Rice</option>
+        <option value="Noodles">Noodles</option>
+        <option value="Snack">Snack</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Drink">Drink</option>
+        <option value="Soup">Soup</option>
+        <option value="Bread">Bread</option>
+      </select>
+      <select id="ratingFilter">
+        <option value="">All Ratings</option>
+        <option value="5">5 stars</option>
+        <option value="4">4+ stars</option>
+        <option value="3">3+ stars</option>
+        <option value="2">2+ stars</option>
+        <option value="1">1+ star</option>
+      </select>
+      <button class="search-btn" id="searchBtn">Search</button>
+    </div>
+
+    <div id="foods"></div>
+  </div>
+
+  <div id="detail-view" class="detail-view">
+    <button id="back-btn" class="back-button">← Return back</button>
+    <div class="detail-card">
+      <div id="detail-header" class="detail-header">
+        <div class="detail-image">
+          <img id="detail-img" src="" alt="">
+        </div>
+        <div class="detail-info">
+          <h1 id="detail-name"></h1>
+          <p id="detail-description"></p>
+          <div id="detail-location" class="detail-location">
+            <span class="location-icon">📍</span>
+            <span id="detail-area"></span>
+          </div>
+          <div class="detail-rating">
+            <div id="detail-stars" class="stars"></div>
+            <span id="detail-rating-text"></span>
+          </div>
+          <div class="detail-type">
+            <span class="food-type" id="detail-type"></span>
+          </div>
+          <button id="favorite-btn" class="favorite-btn" title="Save to Favorites">
+            <span class="heart-icon">♡</span> Save to Favorites
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/hearder-footer.js"></script>
+  <script src="js/foodGuides&Searching.js"></script>
+  <p class="sour">All image from istockphoto.com</p>
+</body>
+</html>

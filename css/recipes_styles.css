@@ -1,0 +1,456 @@
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #edf69b 0%, #f9e9cd 100%);
+    min-height: 100vh;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #2d3748;
+}
+
+body.bg-light-gray {
+    background-color: #f9fafb;
+}
+
+.custom-btn {
+    background-color: #ff914d;
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.custom-btn:hover {
+    background-color: #ffa54d;
+    transform: translateY(-1px);
+}
+
+.custom-btn:active {
+    background-color: #e68a00;
+    transform: translateY(0);
+}
+
+.custom-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 145, 77, 0.5);
+}
+
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    height: 16rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    margin: 0.5rem 0 0;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+    .main-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.recipe-detail-box {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-loading {
+    padding: 2rem;
+    text-align: center;
+}
+
+.loading-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4a5568;
+}
+
+.error-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626; /* red-600 equivalent */
+}
+
+.error-message {
+    margin-top: 0.5rem;
+    color: #6b7280; /* gray-500 equivalent */
+}
+
+.filter-section {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-item {
+    flex-grow: 1;
+    min-width: 140px;
+}
+
+.filter-item label {
+    display: block;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+}
+
+.filter-item select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    font-size: 0.875rem;
+    appearance: none;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvc3ZnIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDVsLTcgN2g1djZoNHYtNmM1IDAtNy0yLTctNHoiLz48L3N2Zz4=');
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    transition: border-color 0.2s;
+}
+
+.filter-item select:focus {
+    border-color: #ff914d;
+    box-shadow: 0 0 0 3px rgba(255, 145, 77, 0.5);
+    outline: none;
+}
+
+#recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    #recipe-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.recipe-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+}
+
+.recipe-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover img {
+    transform: scale(1.05);
+}
+
+.recipe-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 0.5rem;
+}
+
+.recipe-card .favorite-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #a0aec0;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: color 0.2s;
+}
+
+.recipe-card .favorite-btn svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.recipe-card .favorite-btn:hover {
+    color: #ef4444;
+}
+
+.recipe-card .tags {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+}
+
+.recipe-card .tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.recipe-card .tag.yellow {
+    background-color: #fefcbf;
+    color: #744210;
+}
+
+.recipe-card .tag.green {
+    background-color: #c6f6d5;
+    color: #22543d;
+}
+
+.recipe-card .tag.blue {
+    background-color: #bee3f8;
+    color: #2a4365;
+}
+
+.recipe-card .details {
+    margin: 0.5rem 0;
+    color: #4a5568;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.recipe-card .details span {
+    font-size: 0.875rem;
+}
+
+.recipe-card a {
+    display: block;
+    background-color: #ff914d;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.recipe-card a:hover {
+    background-color: #ffa54d;
+}
+
+.footer-links {
+    text-align: center;
+    color: #718096;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+}
+
+.footer-links p {
+    margin: 0.25rem 0;
+}
+
+.footer-links a {
+    color: #718096;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #4a5568;
+}
+
+/* Detail View Styles */
+.detail-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px; /* Adjusted from 320px (h-80) to 400px for better detail view, adjustable */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.content-padding {
+    padding: 1.5rem 2.5rem;
+}
+
+.detail-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.tag {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.tag.yellow {
+    background-color: #fefcbf;
+    color: #744210;
+}
+
+.tag.green {
+    background-color: #c6f6d5;
+    color: #22543d;
+}
+
+.tag.blue {
+    background-color: #bee3f8;
+    color: #2a4365;
+}
+
+.description-text {
+    margin-top: 1.5rem;
+    color: #4a5568;
+}
+
+.section-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .section-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    border-bottom: 2px solid #fefcbf;
+    padding-bottom: 0.5rem;
+}
+
+.ingredients-list,
+.instructions-list {
+    margin-top: 1rem;
+}
+
+.ingredient-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.ingredient-check {
+    margin-right: 0.5rem;
+    color: #744210;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.step-number {
+    flex-shrink: 0;
+    background-color: #fefcbf;
+    color: #ffffff;
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-right: 0.75rem;
+}
+
+.video-section {
+    margin-top: 2.5rem;
+}
+
+.video-section .section-title {
+    margin-bottom: 1rem;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-button-container {
+    margin-top: 2.5rem;
+    text-align: center;
+}

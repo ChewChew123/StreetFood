@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <!-- Load header-footer.js first to ensure correct loading order -->
+    <script src="js/hearder-footer.js"></script>
+    <link rel="stylesheet" href="css/recipes_styles.css">
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <div class="hero-section" style="background-image: url('img/recipes/recipes_background.jpeg');">
+            <div class="hero-content">
+                <h1>Recipes</h1>
+                <p>Discover Malaysia Cuisines</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Filters Section - Horizontal layout -->
+            <div class="filter-section">
+                <!-- Cuisine -->
+                <div class="filter-item">
+                    <label for="cuisine">Cuisine</label>
+                    <select id="cuisine" name="cuisine">
+                        <option>All</option>
+                        <option>Malay</option>
+                        <option>Chinese</option>
+                        <option>Indian</option>
+                    </select>
+                </div>
+                <!-- Type -->
+                <div class="filter-item">
+                    <label for="type">Type</label>
+                    <select id="type" name="type">
+                        <option>All</option>
+                        <option>Food</option>
+                        <option>Dessert</option>
+                        <option>Snack</option>
+                        <option>Drink</option>
+                    </select>
+                </div>
+                <!-- Cooking Time -->
+                <div class="filter-item">
+                    <label for="cooking_time">Cooking Time</label>
+                    <select id="cooking_time" name="cooking_time">
+                        <option>Any</option>
+                        <option>Under 15 min</option>
+                        <option>15-30 min</option>
+                        <option>30-60 min</option>
+                        <option>Over 60 min</option>
+                    </select>
+                </div>
+                <!-- Sort By -->
+                <div class="filter-item">
+                    <label for="sort_by">Sort By</label>
+                    <select id="sort_by" name="sort_by">
+                        <option value="popularity">Popularity</option>
+                        <option value="rating">Rating</option>
+                        <option value="level">Cooking Level</option>
+                    </select>
+                </div>
+                <!-- Apply Button -->
+                <button id="applyFilters" class="custom-btn">Apply</button>
+            </div>
+
+            <!-- Recipe Grid -->
+            <div id="recipe-grid"></div>
+        </div>
+
+        <div class="footer-links">
+            <p>Background Image from <a href="https://unsplash.com/photos/an-open-notebook-next-to-a-bowl-of-eggs-and-a-cup-of-tea-WBrQmFYQv8I" target="_blank">Unsplash</a></p>
+            <p>Nasi Lemak Image from <a href="https://www.pexels.com" target="_blank">Pexels</a></p>
+            <p>Other Recipe Images from <a href="https://www.istockphoto.com" target="_blank">iStock</a></p>
+        </div>
+    </main>
+
+    <script src="js/recipes_data.js"></script>
+    <script src="js/recipes_scripts.js"></script>
+    <script src="js/recipe_detail.js"></script>
+</body>
+
+</html>

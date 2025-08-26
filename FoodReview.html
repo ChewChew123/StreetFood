@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaysian Street Food Reviews</title>
+    <link rel="stylesheet" href="css/foodReview.css">
+    <!-- 添加 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+       <!-- Home View -->
+        <div id="main-view">
+            <div class="header">
+                <h1>Top 50 Malaysia Street Food</h1>
+                <p>Discover and review the best Malaysian street food</p>
+            </div>
+            <div class="food-grid" id="food-grid">
+               <!-- Food cards will be dynamically generated via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Detailed page view -->
+        <div id="detail-view" class="detail-view">
+            <button class="back-button" onclick="showMainView()">← Return back</button>
+            <div class="detail-card">
+                <div class="detail-header" id="detail-header">
+                  <!-- Details will be generated dynamically via JavaScript -->
+                </div>
+                
+                <div class="reviews-section">
+                    <div class="reviews-header">
+                        <h2 class="reviews-title">User reviews</h2>
+                        <div>
+                            <button id="favorite-btn" class="favorite-btn" onclick="toggleFavorite()">
+                                <i class="far fa-heart"></i> Add to Favorites
+                            </button>
+                            <button class="add-review-btn" onclick="toggleReviewForm()">Write a review</button>
+                        </div>
+                    </div>
+
+                    <div class="review-form" id="review-form">
+                        <div class="form-group">
+                            <label class="form-label">User name</label>
+                            <input type="text" class="form-input" id="reviewer-name" placeholder="Enter You Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">score</label>
+                            <div class="stars" id="rating-stars">
+                               <!-- Stars will be dynamically generated via JavaScript -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Review content</label>
+                            <textarea class="form-input form-textarea" id="review-comment" placeholder="Share you experience..."></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn-submit" onclick="submitReview()">Submit review</button>
+                            <button class="btn-cancel" onclick="toggleReviewForm()">cancel</button>
+                        </div>
+                    </div>
+
+                    <div class="reviews-list" id="reviews-list">
+                       <!-- The review list will be dynamically generated via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/foodReview.js"></script>
+    <script src="js/hearder-footer.js"></script>
+    <p class="source">All image from istockphoto.com</p>
+</body>
+</html>

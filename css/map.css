@@ -1,0 +1,27 @@
+:root {
+  --text: #fff;
+  --overlay: rgba(0,0,0,.45);
+}
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  color: var(--text);
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 50%, #fddb92 100%) fixed;
+}
+.bg-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  z-index: -1;
+}
+#map {
+  height: 70vh;
+  border-radius: 1rem;
+}
+.caption {
+  color: #fff;
+  opacity: .9;
+}
