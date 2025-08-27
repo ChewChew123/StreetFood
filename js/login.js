@@ -49,6 +49,10 @@ function goBack() {
         returnTo = "index.html";
     }
 
+     if (returnTo.includes("forgot.html")) {
+        returnTo = "favourite.html";
+    }
+
     window.location.href = returnTo;
     localStorage.removeItem("loginReferrer");
 }
