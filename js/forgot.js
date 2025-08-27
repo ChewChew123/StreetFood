@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("All users:", allUsers);
     console.log("Current user data:", userData);
 
-    // notic
+    // showNotification
     const showNotification = (message, type) => {
       const notification = document.createElement("div");
       notification.className = `notification ${type}`;
