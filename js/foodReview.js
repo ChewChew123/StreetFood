@@ -659,7 +659,14 @@ function generateStars(rating, interactive = false) {
 }
 
 function renderFoodGrid() {
-    const gridHTML = streetFoods.map(food => {
+    // Sort streetFoods by average rating in descending order
+    const sortedFoods = [...streetFoods].sort((a, b) => {
+        const avgRatingA = parseFloat(calculateAverageRating(a.reviews));
+        const avgRatingB = parseFloat(calculateAverageRating(b.reviews));
+        return avgRatingB - avgRatingA; // Descending order
+    });
+
+    const gridHTML = sortedFoods.map(food => {
         const averageRating = parseFloat(calculateAverageRating(food.reviews));
         const totalReviews = food.reviews.length;
         const latestReview = food.reviews[0] || { comment: "No reviews yet" };
