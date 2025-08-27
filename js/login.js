@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const referrer = document.referrer;
+    // correct back page
     if (
         referrer &&
         !referrer.includes("Signup.html") &&
-        !referrer.includes("forgot.html")   // 🚀 加这一行
+        !referrer.includes("forgot.html")  
     ) {
         localStorage.setItem("loginReferrer", referrer);
     }
