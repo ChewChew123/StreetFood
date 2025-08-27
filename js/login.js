@@ -34,6 +34,10 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
             returnTo = "index.html";
         }
 
+        if (returnTo.includes("forgot.html")) {
+        returnTo = "favourite.html";
+    }
+
         window.location.href = returnTo;
         localStorage.removeItem("loginReferrer");
     } else {
