@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const referrer = document.referrer;
-    if (referrer && !referrer.includes("signup.html")) {
+    if (referrer && !referrer.includes("Signup.html")) {
         localStorage.setItem("loginReferrer", referrer);
     }
 });
@@ -45,7 +45,7 @@ function goBack() {
     const urlParams = new URLSearchParams(window.location.search);
     let returnTo = urlParams.get("returnTo") || urlParams.get("returnUrl") || localStorage.getItem("loginReferrer") || "index.html";
 
-    if (returnTo.includes("signup.html")) {
+    if (returnTo.includes("Signup.html")) {
         returnTo = "index.html";
     }
 
