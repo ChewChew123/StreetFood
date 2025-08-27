@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const referrer = document.referrer;
-    if (referrer && !referrer.includes("Signup.html")) {
+    if (
+        referrer &&
+        !referrer.includes("Signup.html") &&
+        !referrer.includes("forgot.html")   // 🚀 加这一行
+    ) {
         localStorage.setItem("loginReferrer", referrer);
     }
 });
