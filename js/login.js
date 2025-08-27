@@ -30,7 +30,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         const urlParams = new URLSearchParams(window.location.search);
         let returnTo = urlParams.get("returnTo") || urlParams.get("returnUrl") || localStorage.getItem("loginReferrer") || "index.html";
 
-        if (returnTo.includes("signup.html")) {
+        if (returnTo.includes("Signup.html")) {
             returnTo = "index.html";
         }
 

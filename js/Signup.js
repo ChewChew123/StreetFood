@@ -55,7 +55,7 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
       showNotification("You can now sign in with your credentials!", "success");
 
       // Redirect to login.html with the returnTo query parameter
-      window.location.replace(`login.html?returnTo=${encodeURIComponent(returnTo)}`);
+      window.location.replace(`Login.html?returnTo=${encodeURIComponent(returnTo)}`);
     }, 1000);
   }, 1500);
 });
