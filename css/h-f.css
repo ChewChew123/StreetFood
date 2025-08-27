@@ -143,14 +143,14 @@ body {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* 确保 collapse 在展开时可见 */
+
 .navbar-collapse.collapse {
     transition: height 0.3s ease;
 }
 
-/* 展开时让菜单撑开 */
+
 .navbar-collapse.collapse.show {
-    display: block;   /* 或 flex，看你要不要横排 */
+    display: block;   
 }
 
 

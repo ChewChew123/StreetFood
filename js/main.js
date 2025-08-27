@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initLoadingAnimation();
 });
 
-// 滚动动画初始化
+// scoll animation initial
 function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -21,7 +21,7 @@ function initScrollAnimations() {
         rootMargin: '0px 0px -50px 0px'
     });
 
-    // 为所有需要动画的元素添加观察
+    
     const elementsToAnimate = document.querySelectorAll(
         'section, .col-lg-8, .col-lg-4, .video-wrapper, .btn, .caption'
     );
@@ -32,7 +32,7 @@ function initScrollAnimations() {
     });
 }
 
-// 视差滚动效果
+// scroll effect
 function initParallaxEffect() {
     let ticking = false;
     
@@ -64,7 +64,7 @@ function initParallaxEffect() {
     window.addEventListener('scroll', requestTick);
 }
 
-// 打字机效果
+// typing effect
 function initTypewriterEffect() {
     const title = document.querySelector('.hero h1');
     if (!title) return;
@@ -82,18 +82,18 @@ function initTypewriterEffect() {
             i++;
             setTimeout(typeWriter, typeSpeed);
         } else {
-            // 移除光标效果
+            
             setTimeout(() => {
                 title.style.borderRight = 'none';
             }, 1000);
         }
     }
     
-    // 延迟开始打字效果
+    // delay animation for typing effect
     setTimeout(typeWriter, 800);
 }
 
-// 浮动粒子效果
+
 function initFloatingParticles() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
@@ -112,7 +112,7 @@ function initFloatingParticles() {
     
     hero.appendChild(particlesContainer);
     
-    // 创建粒子
+   
     for (let i = 0; i < 20; i++) {
         createParticle(particlesContainer);
     }
@@ -136,7 +136,7 @@ function createParticle(container) {
     
     container.appendChild(particle);
     
-    // 粒子浮动动画
+   
     const style = document.createElement('style');
     style.textContent = `
         @keyframes float {
@@ -150,16 +150,16 @@ function createParticle(container) {
     `;
     document.head.appendChild(style);
     
-    // 移除粒子并创建新的
+    
     setTimeout(() => {
         particle.remove();
         createParticle(container);
     }, animationDuration * 1000);
 }
 
-// 增强悬停效果
+
 function initHoverEffects() {
-    // 为按钮添加涟漪效果
+   
     document.querySelectorAll('.btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
@@ -187,7 +187,7 @@ function initHoverEffects() {
         });
     });
     
-    // 涟漪动画样式
+    
     const rippleStyle = document.createElement('style');
     rippleStyle.textContent = `
         @keyframes ripple {
@@ -200,9 +200,9 @@ function initHoverEffects() {
     document.head.appendChild(rippleStyle);
 }
 
-// 页面加载动画
+// loading effect
 function initLoadingAnimation() {
-    // 创建加载屏幕
+
     const loader = document.createElement('div');
     loader.className = 'page-loader';
     loader.innerHTML = `
@@ -213,7 +213,7 @@ function initLoadingAnimation() {
         </div>
     `;
     
-    // 加载屏幕样式
+   
     const loaderStyle = document.createElement('style');
     loaderStyle.textContent = `
         .page-loader {
@@ -278,7 +278,7 @@ function initLoadingAnimation() {
     document.head.appendChild(loaderStyle);
     document.body.appendChild(loader);
     
-    // 模拟加载时间并移除加载屏幕
+    
     window.addEventListener('load', () => {
         setTimeout(() => {
             loader.classList.add('fade-out');
@@ -305,7 +305,7 @@ function createCustomCursor() {
     return cursor;
 }
 
-// 性能优化：减少重绘
+// improve perfomance
 function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -319,9 +319,9 @@ function throttle(func, limit) {
     }
 }
 
-// 移动设备优化：禁用某些效果
+// if mobile no effect
 if (window.innerWidth <= 768) {
-    // 在移动设备上禁用粒子效果和视差滚动
+    
     function initFloatingParticles() { return; }
     function initParallaxEffect() { return; }
 }

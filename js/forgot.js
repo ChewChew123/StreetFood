@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const secret = document.getElementById("secret").value.trim();
     console.log("Submitted:", { username, secret });
 
-    // 从 localStorage 获取所有用户数据
+    // load all data from localStorage 
     const allUsers = JSON.parse(localStorage.getItem('users') || '{}');
-    const userData = allUsers[username]; // 取出当前用户的数据
+    const userData = allUsers[username]; // obtain current user data
 
     console.log("All users:", allUsers);
     console.log("Current user data:", userData);
 
-    // 通知系统
+    // notic
     const showNotification = (message, type) => {
       const notification = document.createElement("div");
       notification.className = `notification ${type}`;
@@ -31,13 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
     };
 
-    // 输入错误时抖动动画
     const addShakeAnimation = () => {
       form.classList.add("shake");
       setTimeout(() => form.classList.remove("shake"), 500);
     };
 
-    // 没有找到用户
+    // cant find user
     if (!userData) {
       showNotification("No account found with this username!", "error");
       addShakeAnimation();
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // 验证 secret
+    // validation secret
     if (userData.secret === secret) {
       showNotification(`Your password is: ${userData.password}`, "success");
       form.classList.add("success");
@@ -59,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 添加 slideOut 动画
+// add slideOut animation
 const style = document.createElement("style");
 style.textContent = `
   @keyframes slideOutNotification {

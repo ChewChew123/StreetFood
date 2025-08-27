@@ -77,18 +77,18 @@ function generateStars(rating) {
   return stars;
 }
 
-// 显示主页（网格视图）
+// display main page
 function showMainView() {
   $('#foods').show();
   $('.filters').show();
   $('header').show();
   $('#detail-view').hide().removeClass('active');
-  // 清空 URL 参数以显示初始状态
+  //to initial
   window.history.pushState({}, '', 'foodGuides&Searching.html');
   renderFoods();
 }
 
-// 显示细节函数，检查收藏状态
+// show detail 
 function showDetail(food) {
   $('#detail-img').attr('src', food.img).attr('alt', food.name);
   $('#detail-name').text(food.name);
@@ -98,29 +98,29 @@ function showDetail(food) {
   $('#detail-stars').html(generateStars(food.rating));
   $('#detail-rating-text').text(`(${food.rating}/5)`);
 
-  // 检查是否已收藏
+  //  check favourite or not
   const favorites = getFavorites();
   const isFavorited = favorites.some(fav => fav.name === food.name && fav.type === 'Guides');
   $('#favorite-btn').toggleClass('favorited', isFavorited);
   $('#favorite-btn .heart-icon').text(isFavorited ? '♥' : '♡');
 
-  // 隐藏网格和过滤器，显示细节
+  //hide main page ， show detail
   $('#foods').hide();
   $('.filters').hide();
   $('header').hide();
   $('#detail-view').show().addClass('active');
 
-  // 存储当前食物以便收藏
+  // save food to favourite
   $('#favorite-btn').data('current-food', food);
 }
 
-// 获取当前用户名（与 foodReview.js 和 favorites.js 一致）
+// obtain username（same with foodReview.js and favorites.js ）
 function getCurrentUsername() {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   return currentUser ? currentUser.username : null;
 }
 
-// 获取收藏列表
+// getFavorites
 function getFavorites() {
   const username = getCurrentUsername();
   if (!username) {
@@ -130,7 +130,7 @@ function getFavorites() {
   return JSON.parse(localStorage.getItem(favoritesKey)) || [];
 }
 
-// 保存收藏列表
+// saveFavorites
 function saveFavorites(favorites) {
   const username = getCurrentUsername();
   if (!username) {
@@ -138,25 +138,25 @@ function saveFavorites(favorites) {
   }
   const favoritesKey = `favorites_${username}`;
   localStorage.setItem(favoritesKey, JSON.stringify(favorites));
-  // 触发 storage 事件以更新其他标签页的 Favourite 页面
+  
   window.dispatchEvent(new Event('storage'));
 }
 
-// 收藏功能
+// toggleFavorite
 function toggleFavorite() {
   const username = getCurrentUsername();
   const food = $('#favorite-btn').data('current-food');
   if (!food) return;
 
   if (!username) {
-    // 保存当前页面和食物名称到 returnUrl
+    // returnUrl
     const foodName = $('#detail-name').text();
     const returnUrl = encodeURIComponent(`foodGuides&Searching.html?food=${foodName}`);
     window.location.href = `Login.html?returnUrl=${returnUrl}`;
     return;
   }
 
-  // 如果已登录，直接收藏或取消收藏
+  // if logged，directly save favourite
   let favorites = getFavorites();
   const isFavorited = favorites.some(fav => fav.name === food.name && fav.type === 'Guides');
 
@@ -197,6 +197,7 @@ function renderFoods(query = "") {
     let combined = [...localFoods];
 
     if (query) {
+      // Use jQuery's $.getJSON method to send a GET request to the API and retrieve JSON data
       $.getJSON(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
         .done(function(data) {
           if (data.meals) {
@@ -266,7 +267,7 @@ function displayFoods(arr, region, type, rating) {
     $("#foods").append(card);
   });
 
-  // 添加点击事件
+  
   $('.food-card').on('click', function() {
     const index = $(this).data('index');
     const food = currentFoods[index];
@@ -274,12 +275,12 @@ function displayFoods(arr, region, type, rating) {
   });
 }
 
-// 返回按钮事件
+// return button
 $("#back-btn").on("click", function() {
   showMainView();
 });
 
-// 收藏按钮事件
+// favourite event
 $("#favorite-btn").on("click", function() {
   toggleFavorite();
 });
@@ -327,7 +328,7 @@ $("#searchBtn").on("mouseup mouseleave", function() {
 $(document).ready(function() {
   renderFoods();
 
-  // 检查 URL 中的 food 参数以显示特定食物的细节
+ 
   const urlParams = new URLSearchParams(window.location.search);
   const foodName = urlParams.get('food');
   if (foodName) {

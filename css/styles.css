@@ -11,7 +11,7 @@
             height: 100%;
         }
         
-        /* 背景动画特效 */
+        
         body {
             margin: 0;
             color: var(--text);
@@ -56,7 +56,7 @@
             z-index: -1;
         }
 
-        /* Hero 区域整体特效 */
+        
         .hero {
             min-height: 70vh;
             display: grid;
@@ -97,7 +97,7 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* 动画关键帧 */
+        
         @keyframes heroGlow {
             0% { transform: rotate(0deg) scale(1); opacity: 0.5; }
             100% { transform: rotate(360deg) scale(1.1); opacity: 0.8; }
@@ -118,7 +118,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 主页 Hero 区域的大 Logo - 带特效 */
+        
         .hero .logo-img {
             display: block;
             margin: 0 auto;
@@ -129,7 +129,7 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
             animation: logoFloat 4s ease-in-out infinite;
-            z-index: 2; /* 确保logo有适当的z-index */
+            z-index: 2; 
         }
 
         .hero .logo-img:hover {
@@ -137,7 +137,7 @@
             filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4)) brightness(1.1);
         }
 
-        /* Logo 浮动动画 */
+        /* Logo animation */
         @keyframes logoFloat {
             0%, 100% { 
                 transform: translateY(0) rotate(0deg); 
@@ -147,7 +147,7 @@
             }
         }
 
-        /* 滚动动画 */
+        /* scroll-animate*/
         .scroll-animate {
             opacity: 0;
             transform: translateY(50px);
@@ -159,7 +159,7 @@
             transform: translateY(0);
         }
 
-        /* 文字渐变动画 */
+        
         .section-title {
             color: #fff;
             letter-spacing: 0.3px;
@@ -177,7 +177,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Caption 动画 */
+        /* Caption animation*/
         .caption {
             color: #fff;
             opacity: 0.9;
@@ -193,7 +193,7 @@
         .video-wrapper {
             position: relative;
             padding-top: 56.25%;
-            z-index: 0.1; /* 确保视频容器有适当的z-index */
+            z-index: 0.1; 
         }
 
         .video-wrapper iframe {
@@ -233,19 +233,19 @@
             letter-spacing: .3px;
         }
 
-        /* 卡片悬停特效 */
+        /* card animation */
         .col-lg-8 a, .col-lg-4 a {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
             border-radius: 12px !important;
             position: relative;
-            z-index: 1; /* 确保卡片链接有适当的z-index */
+            z-index: 1; 
         }
 
         .col-lg-8 a:hover, .col-lg-4 a:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            z-index: 3; /* 悬停时提高z-index */
+            z-index: 3; 
         }
 
         .col-lg-8 img, .col-lg-4 img {
@@ -260,11 +260,11 @@
             filter: brightness(1.1) saturate(1.2);
         }
 
-        /* 标签动画 */
+        
         .position-absolute span {
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            z-index: 2; /* 确保标签有较高的z-index */
+            z-index: 2; 
         }
 
         .col-lg-8 a:hover .position-absolute span,
@@ -312,7 +312,7 @@
             z-index: 1;
         }
 
-        /* 修复图片覆盖问题 */
+        
         .position-relative {
             position: relative;
             z-index: 1;
@@ -320,10 +320,10 @@
 
         .position-absolute {
             position: absolute;
-            z-index: 2; /* 确保绝对定位元素有适当的z-index */
+            z-index: 2; 
         }
 
-        /* 响应式调整 - 性能优化 */
+        
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -340,7 +340,7 @@
             }
         }
 
-        /* 响应式调整主页 logo */
+        
         @media (max-width: 768px) {
             .hero .logo-img {
                 max-width: 250px;
@@ -353,7 +353,7 @@
             }
         }
 
-        /* 添加额外的z-index管理 */
+        
         main.container {
             position: relative;
             z-index: 2;

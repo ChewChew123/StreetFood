@@ -40,9 +40,9 @@ function saveFavorites(favorites) {
 function toggleFavorite() {
     const username = getCurrentUsername();
     if (!username) {
-        const returnUrl = encodeURIComponent(`FoodReview.html?id=${currentFood.id}`); // 添加 returnUrl 参数
+        const returnUrl = encodeURIComponent(`FoodReview.html?id=${currentFood.id}`); // add returnUrl 
         alert("Please log in to add favorites!");
-        window.location.href = `Login.html?returnUrl=${returnUrl}`; // 使用 returnUrl 跳转
+        window.location.href = `Login.html?returnUrl=${returnUrl}`; // use returnUrl 
         return;
     }
 
