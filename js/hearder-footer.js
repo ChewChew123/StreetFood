@@ -270,28 +270,6 @@ function handleCookieConsent(type) {
     }
 }
 
-function handleNewsletterSignup(event) {
-    event.preventDefault();
-    const email = event.target.email.value;
-    
-    // Show success animation
-    const button = event.target.querySelector('button');
-    const originalContent = button.innerHTML;
-    
-    button.innerHTML = '<i class="bi bi-check-circle-fill"></i>';
-    button.classList.add('btn-success');
-    button.classList.remove('btn-primary');
-    
-    setTimeout(() => {
-        button.innerHTML = originalContent;
-        button.classList.remove('btn-success');
-        button.classList.add('btn-primary');
-        event.target.reset();
-    }, 2000);
-    
-    console.log('Newsletter signup:', email);
-}
-
 function initMobileMenu() {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
@@ -410,13 +388,6 @@ function initScrollNavBehavior() {
     });
 }
 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
 function initPerformanceMonitoring() {
     window.addEventListener('load', () => {
         setTimeout(() => {
@@ -441,19 +412,6 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
-}
-
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
 }
 
 // Initialize performance monitoring

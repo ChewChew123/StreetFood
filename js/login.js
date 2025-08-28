@@ -68,19 +68,3 @@ function goBack() {
     window.location.href = returnTo;
     localStorage.removeItem("loginReferrer");
 }
-
-function registerUser(username, password) {
-    let userData = JSON.parse(localStorage.getItem("users") || "{}");
-    userData[username] = { password: password }; // Store as object for future extensibility
-    localStorage.setItem("users", JSON.stringify(userData));
-}
-
-function getCookie(name) {
-    let ca = document.cookie.split(";");
-    name = name + "=";
-    for (let c of ca) {
-        c = c.trim();
-        if (c.indexOf(name) === 0) return c.substring(name.length);
-    }
-    return "";
-}

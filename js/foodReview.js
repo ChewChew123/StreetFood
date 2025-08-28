@@ -919,39 +919,3 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Malaysian Street Food Rating System initialized');
     console.log('Shortcuts: Number keys 1-5 to set rating, ESC key to return/close');
 });
-
-function addResetButton() {
-    const resetBtn = document.createElement('button');
-    resetBtn.textContent = 'Reset Data';
-    resetBtn.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #ff4444;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 1000;
-        font-size: 12px;
-    `;
-    resetBtn.onclick = () => {
-        if (confirm('Are you sure you want to reset all data? This will clear all user ratings!')) {
-            resetToDefault();
-        }
-    };
-    document.body.appendChild(resetBtn);
-}
-
-function debugCheckData() {
-    console.log('=== Data Integrity Check ===');
-    streetFoods.forEach(food => {
-        console.log(`${food.name}:`);
-        food.reviews.forEach((review, index) => {
-            console.log(`  ${index + 1}. ${review.user} - ${review.rating} stars - ${review.comment}`);
-        });
-        console.log(`  Average Rating: ${calculateAverageRating(food.reviews)} stars`);
-        console.log('---');
-    });
-}

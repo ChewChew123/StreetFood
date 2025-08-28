@@ -129,19 +129,6 @@ document.getElementById("password").addEventListener("input", function (e) {
   strengthText.className = "strength-text " + strengthClass;
 });
 
-// Password toggle functionality
-function togglePassword(inputId) {
-  const input = document.getElementById(inputId);
-  const button = input.nextElementSibling;
-
-  if (input.type === "password") {
-    input.type = "text";
-    button.textContent = "🙈";
-  } else {
-    input.type = "password";
-    button.textContent = "👁️";
-  }
-}
 
 // Notification system
 function showNotification(message, type = "success") {
