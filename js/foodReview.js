@@ -1,17 +1,3 @@
-// Force clear potentially existing old localStorage data
-function forceCleanOldData() {
-    const storageKeys = ['malaysiStreetFoods', 'streetFoods', 'malaysianFoodData'];
-    storageKeys.forEach(key => {
-        if (localStorage.getItem(key)) {
-            console.log(`Found old data, clearing localStorage key: ${key}`);
-            localStorage.removeItem(key);
-        }
-    });
-    console.log('Old data cleanup completed');
-}
-
-// Execute cleanup immediately when page loads
-forceCleanOldData();
 
 // Helper to get current username
 function getCurrentUsername() {
