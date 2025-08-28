@@ -1,4 +1,3 @@
-// Street Food Feedback Form JavaScript
 class FeedbackForm {
     constructor() {
         this.form = document.getElementById('feedbackForm');
@@ -34,13 +33,19 @@ class FeedbackForm {
         // Input validation and styling
         this.setupInputValidation();
         
-        // Real-time form feedback
+        // Real-time form feedback and state persistence
         this.setupRealTimeFeedback();
     }
 
     initializeForm() {
-        // Clear all form fields
-        this.form.reset();
+        // Restore form state from sessionStorage before resetting
+        this.restoreFormState();
+        
+        // Only reset if no previous state exists
+        if (!sessionStorage.getItem('streetFoodFormState')) {
+            this.form.reset();
+        }
+        
         this.hideAlerts();
         this.resetRating();
         this.updateSubmitButton(false);
@@ -55,6 +60,7 @@ class FeedbackForm {
                 const value = e.target.value;
                 this.updateRatingText(value);
                 this.validateForm();
+                this.saveFormState(); // Save form state on rating change
             });
         });
 
@@ -78,6 +84,7 @@ class FeedbackForm {
             input.addEventListener('input', (e) => {
                 this.clearFieldError(e.target);
                 this.validateForm();
+                this.saveFormState(); // Save form state on input change
             });
         });
     }
@@ -90,6 +97,7 @@ class FeedbackForm {
             if (email && !this.isValidEmail(email)) {
                 this.showFieldError(e.target, 'Please enter a valid email address');
             }
+            this.saveFormState(); // Save form state on email input
         });
 
         // Phone validation and formatting
@@ -132,6 +140,7 @@ class FeedbackForm {
                 // Clear invalid input
                 e.target.value = '';
             }
+            this.saveFormState(); // Save form state on phone input
         });
 
         // Handle backspace and deletion properly
@@ -156,10 +165,90 @@ class FeedbackForm {
                         } else {
                             e.target.value = '';
                         }
+                        this.saveFormState(); // Save form state on backspace
                     }, 0);
                 }
             }
         });
+
+        // Checkbox inputs for food categories
+        const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
+        checkboxInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                this.saveFormState(); // Save form state on checkbox change
+            });
+        });
+
+        // Feedback textarea
+        const feedbackInput = this.form.querySelector('textarea');
+        if (feedbackInput) {
+            feedbackInput.addEventListener('input', () => {
+                this.saveFormState(); // Save form state on feedback input
+            });
+        }
+    }
+
+    // Save current form state to sessionStorage
+    saveFormState() {
+        const formData = new FormData(this.form);
+        const state = {};
+        
+        // Store input values
+        for (let [key, value] of formData.entries()) {
+            if (state[key]) {
+                // Handle multiple values (like checkboxes)
+                if (Array.isArray(state[key])) {
+                    state[key].push(value);
+                } else {
+                    state[key] = [state[key], value];
+                }
+            } else {
+                state[key] = value;
+            }
+        }
+        
+        try {
+            sessionStorage.setItem('streetFoodFormState', JSON.stringify(state));
+        } catch (e) {
+            console.warn('Could not save form state to sessionStorage:', e);
+        }
+    }
+
+    // Restore form state from sessionStorage
+    restoreFormState() {
+        try {
+            const savedState = JSON.parse(sessionStorage.getItem('streetFoodFormState') || '{}');
+            
+            // Restore text inputs, email, phone, and textarea
+            const inputs = this.form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
+            inputs.forEach(input => {
+                if (savedState[input.name]) {
+                    input.value = savedState[input.name];
+                }
+            });
+            
+            // Restore checkboxes
+            const checkboxes = this.form.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = Array.isArray(savedState[checkbox.name]) 
+                    ? savedState[checkbox.name].includes(checkbox.value)
+                    : savedState[checkbox.name] === checkbox.value;
+            });
+            
+            // Restore rating
+            const ratingInputs = this.form.querySelectorAll('input[name="rating"]');
+            ratingInputs.forEach(input => {
+                if (savedState.rating === input.value) {
+                    input.checked = true;
+                    this.updateRatingText(input.value);
+                }
+            });
+            
+            // Validate form after restoring state
+            this.validateForm();
+        } catch (e) {
+            console.warn('Could not restore form state from sessionStorage:', e);
+        }
     }
 
     updateRatingText(value) {
@@ -290,6 +379,7 @@ class FeedbackForm {
             if (success) {
                 this.showSuccess();
                 this.resetForm();
+                sessionStorage.removeItem('streetFoodFormState'); // Clear form state on successful submission
             } else {
                 this.showError('There was an error submitting your feedback. Please try again.');
             }
@@ -337,7 +427,7 @@ class FeedbackForm {
                 // Log the data (in production, send to your server)
                 console.log('Feedback submitted:', data);
                 
-                // Store in localStorage as backup (optional)
+                // Store in localStorage as backup
                 try {
                     const existingFeedback = JSON.parse(localStorage.getItem('streetFoodFeedback') || '[]');
                     existingFeedback.push(data);
@@ -350,29 +440,6 @@ class FeedbackForm {
                 resolve(Math.random() > 0.1);
             }, 1500);
         });
-
-        /* 
-        // Real API implementation example:
-        try {
-            const response = await fetch('https://your-api.com/feedback', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const result = await response.json();
-            return result.success;
-        } catch (error) {
-            console.error('API Error:', error);
-            return false;
-        }
-        */
     }
 
     showLoading(isLoading) {
@@ -638,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
     🎯 Form validation and real-time feedback  
     📱 Responsive design for all devices
     ♿ Accessibility enhancements
-    💾 Local storage backup
+    💾 LocalStorage for feedback persistence, sessionStorage for form state
     🚀 Simulated API submission
     
     To export all feedback data, run: feedbackForm.exportFeedback()
