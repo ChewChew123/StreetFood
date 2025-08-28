@@ -32,6 +32,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         alert("Login successful! Welcome, " + username);
         localStorage.setItem("currentUser", JSON.stringify({ username: username }));
 
+        //cookie
+        document.cookie = `currentUser=${username}; path=/; max-age=${7 * 24 * 60 * 60}`;
+          
         const urlParams = new URLSearchParams(window.location.search);
         let returnTo = urlParams.get("returnTo") || urlParams.get("returnUrl") || localStorage.getItem("loginReferrer") || "index.html";
 
