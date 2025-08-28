@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (currentUser && currentUser.username) {
     usernameP.textContent = currentUser.username;
     if (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).avatar) {
-      avatarDiv.innerHTML = `<img src="${JSON.parse(localStorage.getItem('user')).avatar}" class="w-full h-full rounded-full object-cover">`;
+      avatarDiv.innerHTML = `<img src="${JSON.parse(localStorage.getItem('user')).avatar}" class="card-image">`;
     } else {
       avatarDiv.textContent = currentUser.username.charAt(0).toUpperCase();
     }
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     avatarDiv.textContent = "G";
     loginLogoutBtn.textContent = "Log In";
   }
-  
+
   // Add click event listener for authentication
   if (loginLogoutBtn) {
     loginLogoutBtn.addEventListener('click', handleAuthAction);
@@ -49,9 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close popovers if clicking outside
-  document.addEventListener('click', () => {
-    closeAllPopovers();
+  document.addEventListener('click', (e) => {
+    const isPopover = e.target.closest('[id$="-popover"]');
+    const isButton = e.target.closest('#toggle-avatar-btn, #toggle-username-btn');
+
+    if (!isPopover && !isButton) {
+      closeAllPopovers();
+    }
   });
 });
 
@@ -76,7 +80,7 @@ function saveUsername() {
   localStorage.setItem('user', JSON.stringify(user));
 
   document.getElementById('profile-username').textContent = newUsername;
-  
+
   if (!user.avatar) {
     document.getElementById('profile-avatar').textContent = newUsername.charAt(0).toUpperCase();
   }
@@ -90,13 +94,13 @@ function saveAvatar() {
   if (!file) return;
 
   const reader = new FileReader();
-  reader.onload = function(e) {
+  reader.onload = function (e) {
     let user = JSON.parse(localStorage.getItem('user')) || {};
     user.avatar = e.target.result;
     localStorage.setItem('user', JSON.stringify(user));
 
     document.getElementById('profile-avatar').innerHTML =
-      `<img src="${e.target.result}" class="w-full h-full rounded-full object-cover">`;
+      `<img src="${e.target.result}" class="card-image">`;
 
     closeAllPopovers();
   };
